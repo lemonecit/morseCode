@@ -7,6 +7,7 @@ public class MorseCode {
 
     // Fyll i morsekod-tabellen vid programmets start
     static {
+        // Bokstäver
         textToMorse.put('A', ".-");    textToMorse.put('B', "-...");
         textToMorse.put('C', "-.-.");  textToMorse.put('D', "-..");
         textToMorse.put('E', ".");     textToMorse.put('F', "..-.");
@@ -21,7 +22,6 @@ public class MorseCode {
         textToMorse.put('W', ".--");   textToMorse.put('X', "-..-");
         textToMorse.put('Y', "-.--");  textToMorse.put('Z', "--..");
 
-
         // Bygg den omvända mappen (Morse → text)
         for (Map.Entry<Character, String> entry : textToMorse.entrySet()) {
             morseToText.put(entry.getValue(), entry.getKey());
@@ -35,7 +35,7 @@ public class MorseCode {
             if (textToMorse.containsKey(c)) {
                 morse.append(textToMorse.get(c)).append(" ");
             } else if (c == ' ') {
-                morse.append("  "); // Två mellanslag mellan ord
+                morse.append("   "); // Tre mellanslag mellan ord
             } else {
                 throw new IllegalArgumentException("Fel: Ogiltigt tecken '" + c + "' i texten.");
             }
@@ -47,9 +47,14 @@ public class MorseCode {
     public static String morseToText(String morse) {
         StringBuilder text = new StringBuilder();
         String[] words = morse.trim().split("   "); // Tre mellanslag mellan ord
+
         for (String word : words) {
             for (String letter : word.split(" ")) {
-                text.append(morseToText.getOrDefault(letter, '?')); // ? vid okänd morsekod
+                if (morseToText.containsKey(letter)) {
+                    text.append(morseToText.get(letter));
+                } else {
+                    throw new IllegalArgumentException("Fel: Ogiltig morsekod '" + letter + "'.");
+                }
             }
             text.append(" ");
         }
