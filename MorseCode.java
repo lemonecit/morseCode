@@ -43,7 +43,7 @@ public class MorseCode {
         return morse.toString().trim();
     }
 
-    // Metod: Omvandla morsekod till text
+    // Metod: Omvandla morsekod till text and
     public static String morseToText(String morse) {
         StringBuilder text = new StringBuilder();
         String[] words = morse.trim().split("   "); // Tre mellanslag mellan ord
