@@ -20,11 +20,7 @@ public class MorseCode {
         textToMorse.put('U', "..-");   textToMorse.put('V', "...-");
         textToMorse.put('W', ".--");   textToMorse.put('X', "-..-");
         textToMorse.put('Y', "-.--");  textToMorse.put('Z', "--..");
-        textToMorse.put('1', ".----"); textToMorse.put('2', "..---");
-        textToMorse.put('3', "...--"); textToMorse.put('4', "....-");
-        textToMorse.put('5', "....."); textToMorse.put('6', "-....");
-        textToMorse.put('7', "--..."); textToMorse.put('8', "---..");
-        textToMorse.put('9', "----."); textToMorse.put('0', "-----");
+
 
         // Bygg den omvända mappen (Morse → text)
         for (Map.Entry<Character, String> entry : textToMorse.entrySet()) {
