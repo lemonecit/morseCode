@@ -55,7 +55,7 @@ public class MorseCode {
             System.out.printf("%-3s → %-6s", entry.getKey(), entry.getValue()); // Justerar tecken och morsekod med bredder
 
             counter++;
-            if (counter % 5 == 0) { // Efter varje 5:e tecken, byt rad
+            if (counter % 5 == 0) { // Break och byt rad
                 System.out.println();
             } else {
                 System.out.print("\t"); // Lägg till tab för jämnare justering
@@ -79,7 +79,7 @@ public class MorseCode {
             } else if (c == ' ') {
                 morse.append("  "); // två mellanslag mellan ord
             } else {
-                throw new IllegalArgumentException("Fel: Ogiltigt tecken '" + c + "' i texten.");
+                throw new IllegalArgumentException("Fel: Ogiltigt tecken '" + c + "' i texten."); // felhantering
             }
         }
         return morse.toString().trim();
@@ -97,7 +97,7 @@ public class MorseCode {
                 if (morseToText.containsKey(letter)) {
                     text.append(morseToText.get(letter));
                 } else {
-                    System.out.println("Varning: Ogiltig morsekod '" + letter + "'. Skippas.");
+                    System.out.println("Varning: Ogiltig morsekod '" + letter + "'. Skippas."); // Felhantering
                 }
             }
             text.append(" ");
