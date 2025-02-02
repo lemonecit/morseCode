@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MorseCodeTest {
 
-    // 📌 1️⃣ TESTER FÖR TEXT → MORSE
+    // TESTER FÖR TEXT → MORSE
     @Test
     public void testTextToMorse_Hello() {
         assertEquals(".... . .-.. .-.. ---", MorseCode.textToMorse("HELLO"));
@@ -43,7 +43,7 @@ public class MorseCodeTest {
         assertEquals("- --- -- .- ...", MorseCode.textToMorse("TOMAS"));
     }
 
-    // 📌 2️⃣ TESTER FÖR MORSE → TEXT
+    // TESTER FÖR MORSE → TEXT
     @Test
     public void testMorseToText_Hello() {
         assertEquals("HELLO", MorseCode.morseToText(".... . .-.. .-.. ---"));
@@ -64,7 +64,7 @@ public class MorseCodeTest {
         assertEquals("HEJ TOMAS", MorseCode.morseToText(".... . .---   - --- -- .- ..."));
     }
 
-    // 📌 3️⃣ FELHANTERINGSTESTER (EXCEPTION TESTER)
+    // FELHANTERINGSTESTER (EXCEPTION TESTER)
     @Test
     public void testTextToMorse_InvalidCharacters() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> MorseCode.textToMorse("123"));
